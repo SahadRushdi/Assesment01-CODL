@@ -29,11 +29,8 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
                     // Table already exists
                     console.log("Table 'customer' already exists.");
                 } else {
-                    console.log("Table 'customer' just created. Adding initial data...");
-                    // Insert initial data
-                    var insert = `INSERT INTO customer 
-            (name, address, email, dateOfBirth, gender, age, cardHolderName, cardNumber, expiryDate, cvv, timeStamps) 
-            VALUES (?,?,?,?,?,?,?,?,?,?,?)`;
+                    // Table just created, creating some rows
+                    var insert = 'INSERT INTO customer (name, address, email, dateOfBirth, gender, age, cardHolderName,cardNumber, expiryDate, cvv, timeStamps) VALUES (?,?,?,?,?,?,?,?,?,?,?)'
                     db.run(insert, [
                         "A.D.Lakith Dharmasiri",
                         "No 324/A Ra De Mel Road, Colombo",
